@@ -56,34 +56,34 @@ with the figures generated during the analysis.
 
 For a homodyne dataset
 
-\[
+$$
 D=\{(x_i,\theta_i)\}_{i=1}^{N},
-\]
+$$
 
-and a parametrized quantum state \(\rho(\mathbf{s})\), the probability density
+and a parametrized quantum state $\rho(\mathbf{s})$, the probability density
 for an individual homodyne measurement is
 
-\[
+$$
 p(x_i|\theta_i,\mathbf{s})
 =
 \mathrm{Tr}
 \left[
 \Pi(x_i,\theta_i)\rho(\mathbf{s})
 \right].
-\]
+$$
 
 Assuming independent measurements, the total log-likelihood is
 
-\[
+$$
 \log L(\mathbf{s})
 =
 \sum_{i=1}^{N}
 \log p(x_i|\theta_i,\mathbf{s}).
-\]
+$$
 
 Bayes' theorem gives
 
-\[
+$$
 p(\mathbf{s}|D)
 =
 \frac{
@@ -91,18 +91,18 @@ p(D|\mathbf{s})p(\mathbf{s})
 }{
 p(D)
 },
-\]
+$$
 
-and therefore, for parameter inference within a fixed model,
+and therefore
 
-\[
+$$
 p(\mathbf{s}|D)
 \propto
 p(D|\mathbf{s})p(\mathbf{s}).
-\]
+$$
 
-The posterior distributions are sampled numerically using Markov-chain Monte
-Carlo methods implemented with `emcee`.
+Posterior distributions are sampled numerically using Markov-chain Monte Carlo
+(MCMC) with `emcee`.
 
 ---
 
@@ -110,27 +110,27 @@ Carlo methods implemented with `emcee`.
 
 The Gaussian state is modeled as
 
-\[
+$$
 \rho_{\mathrm{sq-th}}(\mathbf{s})
 =
-S(r,\phi)
+S(r,\phi)\,
 \rho_{\mathrm{th}}(n_{\mathrm{th}})
 S^\dagger(r,\phi),
-\]
+$$
 
-with parameters
+with
 
-\[
+$$
 \mathbf{s}
 =
 (r_{\mathrm{dB}},\phi,n_{\mathrm{th}}).
-\]
+$$
 
 The inferred quantities are:
 
-- squeezing strength \(r_{\mathrm{dB}}\),
-- squeezing angle \(\phi\),
-- thermal occupation \(n_{\mathrm{th}}\).
+- squeezing strength $r_{\mathrm{dB}}$,
+- squeezing angle $\phi$,
+- thermal occupation $n_{\mathrm{th}}$.
 
 Both simulated and experimental homodyne datasets are analyzed.
 
@@ -145,22 +145,22 @@ posterior uncertainty as the amount of data increases.
 
 The non-Gaussian state is modeled as a vacuum-single-photon mixture,
 
-\[
+$$
 \rho(c)
 =
 c|0\rangle\langle0|
 +
 (1-c)|1\rangle\langle1|,
-\]
+$$
 
 with
 
-\[
+$$
 0\leq c\leq1.
-\]
+$$
 
 The Bayesian inference determines the posterior distribution of the mixing
-parameter \(c\).
+parameter $c$.
 
 The simulated dataset provides a controlled example with known ground truth,
 while the experimental dataset is used to study the effective parameter
@@ -172,20 +172,18 @@ inferred from measured single-photon homodyne data.
 
 Posterior estimates are summarized using the 16th, 50th, and 84th percentiles.
 
-The width of the central 68% credible interval is defined as
+The width of the central 68% credible interval is
 
-\[
-\Delta_{68}
-=
-q_{84}-q_{16}.
-\]
+$$
+\Delta_{68}=q_{84}-q_{16}.
+$$
 
-The dependence of this uncertainty on the number of measurements is compared
-with the reference statistical scaling
+Its dependence on the number of measurements is compared with the reference
+statistical scaling
 
-\[
+$$
 \Delta_{68}\propto N^{-1/2}.
-\]
+$$
 
 For simulated datasets, convergence toward known ground-truth parameters can
 be studied directly.
@@ -208,7 +206,7 @@ Main outputs include:
 - marginalized posterior distributions,
 - joint posterior distributions,
 - parameter correlations,
-- posterior convergence with increasing \(N\),
+- posterior convergence with increasing $N$,
 - credible-interval contraction,
 - posterior-convergence GIF.
 
@@ -219,7 +217,7 @@ Application of the squeezed-thermal model to experimental homodyne data.
 Main outputs include:
 
 - experimental quadrature sequence,
-- posterior distributions for \(r_{\mathrm{dB}}\), \(\phi\), and \(n_{\mathrm{th}}\),
+- posterior distributions for $r_{\mathrm{dB}}$, $\phi$, and $n_{\mathrm{th}}$,
 - parameter correlations,
 - stabilization with increasing dataset size,
 - credible-interval contraction,
@@ -227,14 +225,14 @@ Main outputs include:
 
 ### `03_simulated_non_gaussian`
 
-Bayesian estimation of the parameter \(c\) for a simulated
+Bayesian estimation of the parameter $c$ for a simulated
 vacuum-single-photon mixture.
 
 Main outputs include:
 
 - simulated homodyne quadrature sequence,
 - non-Gaussian marginal quadrature distribution,
-- posterior distribution of \(c\),
+- posterior distribution of $c$,
 - convergence toward the known ground truth,
 - posterior contraction,
 - posterior-convergence GIF.
@@ -248,13 +246,13 @@ Main outputs include:
 
 - experimental quadrature sequence,
 - measured non-Gaussian marginal distribution,
-- posterior distribution of \(c\),
+- posterior distribution of $c$,
 - stabilization with increasing dataset size,
 - credible-interval contraction,
 - posterior-convergence GIF.
 
 The inferred posterior should be interpreted conditional on the assumed model.
-A narrow posterior indicates precise inference of \(c\) within that model, but
+A narrow posterior indicates precise inference of $c$ within that model, but
 does not by itself demonstrate that the model provides a complete physical
 description of the experimental state.
 
@@ -262,8 +260,8 @@ description of the experimental state.
 
 ## Requirements
 
-The Python dependencies and the package versions used for this project are
-listed in [`requirements.txt`](requirements.txt).
+The Python dependencies and package versions used for this project are listed
+in [`requirements.txt`](requirements.txt).
 
 The main versions used are:
 
@@ -277,7 +275,7 @@ corner==2.2.3
 pillow==11.1.0
 ```
 
-Install the required packages with
+Install them with
 
 ```bash
 python -m pip install -r requirements.txt
@@ -302,7 +300,7 @@ python -m pip install -r requirements.txt
 
 Then open any of the Jupyter notebooks inside the four case-study directories.
 
-Each notebook follows the general workflow
+Each notebook follows the general workflow:
 
 ```text
 data preparation

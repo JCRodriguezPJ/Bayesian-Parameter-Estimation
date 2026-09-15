@@ -18,7 +18,7 @@ estimation for representative quantum-optical models.
 
 A technical report accompanying this repository is available here:
 
-[Bayesian Parameter Estimation Report](Bayesian_Parameter_Estimation_Report.pdf)
+[Bayesian Parameter Estimation Report](Bayesian_Parameter_Estimation_Report.pdf?raw=1)
 
 > **Status:** Work in progress. The PDF will be updated as the report is completed.
 
